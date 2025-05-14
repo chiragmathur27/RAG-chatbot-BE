@@ -23,7 +23,7 @@ import torch
 torch.set_default_device("cpu")
 
 load_dotenv()
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 system_prompt = """
