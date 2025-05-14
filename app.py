@@ -19,9 +19,12 @@ from langchain.prompts import PromptTemplate
 from fastapi.responses import JSONResponse, StreamingResponse
 from langchain_core.runnables import RunnableLambda
 from memory import RedisChatMessageHistory
+import torch
+torch.set_default_device("cpu")
 
 load_dotenv()
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 system_prompt = """
 You are a knowledgeable news assistant with access to a database of news articles.
