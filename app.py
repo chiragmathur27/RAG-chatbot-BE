@@ -447,5 +447,6 @@ async def clear_history(session_id: str):
 if __name__ == "__main__":
     import uvicorn
     from create_chroma import create_vector_db
+    os.system("pip install torch==2.3.1 --extra-index-url https://download.pytorch.org/whl/cpu")
     create_vector_db()
     uvicorn.run(app, host="0.0.0.0", port=8000)
