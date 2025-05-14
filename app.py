@@ -446,4 +446,4 @@ if __name__ == "__main__":
     import uvicorn
     from create_chroma import create_vector_db
     create_vector_db()
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000, workers = 1)
