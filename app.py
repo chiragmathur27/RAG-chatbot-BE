@@ -19,8 +19,6 @@ from langchain.prompts import PromptTemplate
 from fastapi.responses import JSONResponse, StreamingResponse
 from langchain_core.runnables import RunnableLambda
 from memory import RedisChatMessageHistory
-import torch
-torch.set_default_device("cpu")
 
 load_dotenv()
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
@@ -447,6 +445,5 @@ async def clear_history(session_id: str):
 if __name__ == "__main__":
     import uvicorn
     from create_chroma import create_vector_db
-    os.system("pip install torch==2.3.1 --extra-index-url https://download.pytorch.org/whl/cpu")
     create_vector_db()
     uvicorn.run(app, host="0.0.0.0", port=8000)
